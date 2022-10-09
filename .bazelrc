@@ -1,0 +1,23 @@
+build --verbose_failures
+build --test_output=errors
+
+build --compilation_mode=dbg
+build --experimental_worker_allow_json_protocol
+
+build --features swift.enable_vfsoverlays
+build --features swift.cacheable_swiftmodules
+build --test_env=PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+build --swiftcopt=-DBAZEL
+build --swiftcopt=-j --swiftcopt=12
+build --jobs 12
+
+build --xcode_version=13.2.1
+build --platforms //:ios_sim_arm64
+
+build --apple_bitcode=none
+
+build --incompatible_use_python_toolchains=true
+build --experimental_guard_against_concurrent_changes=true
+build --collapse_duplicate_defines=true
+build --incompatible_strict_action_env=true
